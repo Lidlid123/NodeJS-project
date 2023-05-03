@@ -1,0 +1,1 @@
+eksctl create cluster --name=octopus --region=us-east-1 --nodes=3 --node-type=t3.micro --ssh-access --ssh-public-key=eks
