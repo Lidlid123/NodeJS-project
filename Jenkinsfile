@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def dockerImage = docker.build('<DOCKER_HUB_USERNAME>/<IMAGE_NAME>:<TAG>')
+                    def dockerImage = docker.build("<DOCKER_HUB_USERNAME>/<IMAGE_NAME>:${env.BUILD_NUMBER}")
                 }
             }
         }
