@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://192.168.1.96:27017';
+const url = 'mongodb://37.231.222.174:27017';
 const dbName = 'mydb';
 
 let db;
