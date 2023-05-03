@@ -1,5 +1,3 @@
-def dockerImage
-
 
 pipeline {
     agent any
