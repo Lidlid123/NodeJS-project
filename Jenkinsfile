@@ -1,3 +1,4 @@
+def dockerImage
 
 pipeline {
     agent any
@@ -5,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def dockerImage = docker.build("boomer12/app:${env.BUILD_NUMBER}")
+                    dockerImage = docker.build("boomer12/app:${env.BUILD_NUMBER}")
                 }
             }
         }
