@@ -24,7 +24,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Configure kubectl to use your EKS cluster
                     
                     // Update the image tag in the deployment.yml file
                     sh "sed -i 's|boomer12/app:.*|boomer12/app:${env.BUILD_NUMBER}|' myapp.yml"
