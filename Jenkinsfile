@@ -23,7 +23,6 @@ pipeline {
             steps {
                 script {
                     // Configure kubectl to use your EKS cluster
-                    sh 'aws eks update-kubeconfig --region us-east-1 --name octopus'
                     
                     // Update the image tag in the deployment.yml file
                     sh "sed -i 's|boomer12/app:.*|boomer12/app:${env.BUILD_NUMBER}|' myapp.yml"
