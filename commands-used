@@ -1,1 +1,5 @@
+
 eksctl create cluster --name=octopus --region=us-east-1 --nodes=3 --node-type=t3.micro --ssh-access --ssh-public-key=eks
+
+needed to change the Api version to v1beta instead of Alpha
+sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config 
