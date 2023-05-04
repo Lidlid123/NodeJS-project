@@ -30,7 +30,7 @@ pipeline {
                     sh "sed -i 's|boomer12/app:.*|boomer12/app:${env.BUILD_NUMBER}|' myapp.yml"
                     
                     // Create or update the Kubernetes deployment using the deployment.yml file
-                    sh 'kubectl apply -f myapp.yml --context octopus'
+                    sh 'kubectl apply -f myapp.yml --context octopus.us-east-1.eksctl.io'
                 }
             }
         }
