@@ -4,3 +4,16 @@ eksctl create cluster --name=octopus --region=us-east-1 --nodes=3 --node-type=t3
 needed to change the Api version to v1beta instead of Alpha
 sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config 
 aws eks update-kubeconfig --region us-east-1 --name octopus
+
+
+
+kubectl edit -n kube-system configmap/aws-auth
+
+
+
+
+  mapRoles: |
+    - rolearn: arn:aws:iam::XXXXXXXXXX:role/ec2role
+      username: ec2role
+      groups:
+      - system:masters
