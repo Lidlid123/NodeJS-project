@@ -1,5 +1,5 @@
 
-eksctl create cluster --name octopus --version 1.22 --region us-east-1 --nodegroup-name worker-nodes --node-type t2.micro --nodes 2 --vpc-public-subnets=subnet-0669ca487064733b1,subnet-00417f05fa03e03e6,subnet-0df2cf3dbe919bf94
+eksctl create cluster --name octopus --version 1.22 --region us-east-1 --nodegroup-name worker-nodes --node-type t3.medium --nodes 2 --vpc-public-subnets=subnet-0669ca487064733b1,subnet-00417f05fa03e03e6,subnet-0df2cf3dbe919bf94
 
 needed to change the Api version to v1beta instead of Alpha
 sed -i .bak -e 's/v1alpha1/v1beta1/' ~/.kube/config 
