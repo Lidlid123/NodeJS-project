@@ -13,6 +13,6 @@ resource "aws_route" "private" {
 
 resource "aws_route" "default" {
   route_table_id            = var.default_route_table_id
-  destination_cidr_block    = module.vpc.cidr
+  destination_cidr_block    = var.peer_vpc_cidr_new
   vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
 }
