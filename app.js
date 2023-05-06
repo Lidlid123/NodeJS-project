@@ -15,7 +15,7 @@ MongoClient.connect(url, { useUnifiedTopology: true },function(err, client) {
 app.get('/', (req, res) => {
   db.collection('fruits').find({name: 'apples'}).toArray((err, result) => {
     if (err) throw err;
-    res.send(`Hello World! from lidor (: We have ${result[0].qty} apples.`);
+    res.send(`Hello World! from lidor (: We have ${result[0].qty} apples in our database !.`);
   });
 });
 
