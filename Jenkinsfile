@@ -33,10 +33,10 @@ pipeline {
     }
     post {
         success {
-            slackSend (channel: '#production', message: "Deployment Successful :tada")
+            slackSend (channel: '#production', message: "Deployment Successful :tada:")
         }
         failure {
-            slackSend (channel: '#production', message: "Deployment Failed :x")
+            slackSend (channel: '#production', message: "Deployment Failed :x:")
         }
     }
 }
