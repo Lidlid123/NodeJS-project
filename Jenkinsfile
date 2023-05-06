@@ -3,8 +3,6 @@ def dockerImage
 pipeline {
     agent any
     stages {
-
-
         stage('Build') {
             steps {
                 script {
@@ -24,7 +22,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    
                     // Update the image tag in the deployment.yml file
                     sh "sed -i 's|boomer12/app:.*|boomer12/app:${env.BUILD_NUMBER}|' myapp.yml"
                     
@@ -32,6 +29,14 @@ pipeline {
                     sh 'kubectl apply -f myapp.yml '
                 }
             }
+        }
+    }
+    post {
+        success {
+            slackSend (channel: '#production', message: "Deployment Successful")
+        }
+        failure {
+            slackSend (channel: '#production', message: "Deployment Failed")
         }
     }
 }
