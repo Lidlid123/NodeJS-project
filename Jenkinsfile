@@ -33,6 +33,9 @@ pipeline {
         stage('Verify Deployment') {
             steps {
                 script {
+                    
+                    // adding a delay between the deploy phase and the verifcaition phase 
+                    sleep 10
                     // Check the load balancer address using curl
                     sh 'curl -f http://a80972bd3401145d08501f980242f9f2-1211242983.us-east-1.elb.amazonaws.com'
                 }
