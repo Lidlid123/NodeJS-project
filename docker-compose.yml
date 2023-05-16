@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:
+    image: boomer12/app:latest
+    depends_on:
+      - db
+    networks:
+      - octopus
+    ports:
+      - "3000:3000"
+  db:
+    image: mongo
+    environment:
+            MONGO_INITDB_DATABASE: mydb
+    volumes:
+      - mongodb-db:/data/db
+      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js
+    networks:
+      - octopus
+    ports:
+      - "27017:27017"
+networks:
+  octopus:
+    driver: bridge
+volumes:
+  mongodb-db:
